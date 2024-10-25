@@ -207,7 +207,6 @@ services:
     environment:
       MONGODB_URL: "mongodb://mongos_router:27016"
       MONGODB_DATABASE_NAME: "somedb"
-      REDIS_URL: "redis://redis:6379"
 
 networks:
   app-network:
