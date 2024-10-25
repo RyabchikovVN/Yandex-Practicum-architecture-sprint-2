@@ -31,9 +31,9 @@ docker exec -it shard1-1 mongosh --port 27018
     {
       _id : "shard1-1",
       members: [
-        {_id: 0, host: "shard1-1:27018" },
-        {_id: 1, host: "shard1-2:27021"},
-        {_id: 2, host: "shard1-3:27022"}
+        {_id: 0, host: "shard1-1:27018"},
+        {_id: 1, host: "shard1-2:27019"},
+        {_id: 2, host: "shard1-3:27020"}
       ]
     }
 );
@@ -45,9 +45,9 @@ docker exec -it shard2-1 mongosh --port 27019
     {
       _id : "shard2-1",
       members: [
-        {_id: 0, host: "mongodb1:27019" },
-        {_id: 1, host: "mongodb2:27023"},
-        {_id: 2, host: "mongodb3:27024"}
+        {_id: 0, host: "shard2-1:27021"},
+        {_id: 1, host: "shard2-2:27022"},
+        {_id: 2, host: "shard2-3:27023"}
       ]
     }
   );
@@ -60,7 +60,7 @@ docker exec -it shard2-1 mongosh --port 27019
 docker exec -it mongos_router mongosh --port 27020
 
 > sh.addShard( "shard1-1/shard1-1:27018");
-> sh.addShard( "shard2-1/shard2-1:27019");
+> sh.addShard( "shard2-1/shard2-1:27021");
 
 > sh.enableSharding("somedb");
 > sh.shardCollection("somedb.helloDoc", { "name" : "hashed" } )
@@ -96,8 +96,14 @@ docker exec -it mongos_router mongosh --port 27020
 4. Проверка количества документов в шарде 2 (результат 508)
 
 ```shell
- docker exec -it shard2-1 mongosh --port 27019
+ docker exec -it shard2-1 mongosh --port 27021
  > use somedb;
  > db.helloDoc.countDocuments();
  > exit(); 
 ```
+
+## Схема проекта draw.io
+https://drive.google.com/file/d/11sACr9oyy8sLJCBHSoKGx0V8Egpksw9U/view?usp=sharing
+
+
+
