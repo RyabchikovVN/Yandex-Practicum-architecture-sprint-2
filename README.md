@@ -102,8 +102,11 @@ docker exec -it mongos_router mongosh --port 27020
  > exit(); 
 ```
 
-## Схема проекта draw.io
-https://drive.google.com/file/d/11sACr9oyy8sLJCBHSoKGx0V8Egpksw9U/view?usp=sharing
-
+## Схема проекта draw.io - https://drive.google.com/file/d/11sACr9oyy8sLJCBHSoKGx0V8Egpksw9U/view?usp=sharing
+Даниил, добрый день!
+Спасибо за потраченное время на ревью и обратную связь!
+Что сделано, с учетом ваших замечаний:
+1. Скорректирована схема "Шаг-4"
+2. Скорректирована схема "Шаг-5"
 
 
